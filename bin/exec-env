@@ -1,7 +1,7 @@
 #!/bin/bash
-if [[ $ASDF_INSTALL_VERSION == *"1.11"* ]]; then
+if [[ $ASDF_INSTALL_VERSION == "eks" ]]; then
   export KUBECONFIG=$HOME/.kube/config.eks
 fi
-if [[ $ASDF_INSTALL_VERSION == *"1.9.11"* ]]; then
+if [[ $ASDF_INSTALL_VERSION == "hub" ]]; then
   export KUBECONFIG=$HOME/.kube/config.mini
 fi

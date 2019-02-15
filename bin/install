@@ -81,7 +81,7 @@ helm_get_filename() {
 helm_get_download_url() {
   local version="$1"
   local platform="$2"
-  local filename="$(get_filename $version $platform)"
+  local filename="$(helm_get_filename $version $platform)"
 
   echo "https://storage.googleapis.com/kubernetes-helm/${filename}"
 }
@@ -125,11 +125,20 @@ minikube_get_filename() {
 
 minikube_get_download_url() {
   local version=$1
-  local filename="$(get_filename)"
+  local filename="$(minikube_get_filename)"
 
   echo "https://github.com/kubernetes/minikube/releases/download/v${version}/${filename}"
 }
 
-install_kubectl $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
-install_helm $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
-install_minikube $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
+if [[ $ASDF_INSTALL_VERSION == 'eks' ]]
+then
+  install_kubectl version 1.11.5 $ASDF_INSTALL_PATH
+  install_helm version 2.9.1 $ASDF_INSTALL_PATH
+  install_minikube version 0.33.1 $ASDF_INSTALL_PATH
+fi
+if [[ $ASDF_INSTALL_VERSION == 'hub' ]]
+then
+  install_kubectl version 1.7.5 $ASDF_INSTALL_PATH
+  install_helm version 2.7.2 $ASDF_INSTALL_PATH
+  install_minikube version 0.22.3 $ASDF_INSTALL_PATH
+fi
