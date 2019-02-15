@@ -7,7 +7,7 @@ Kubectl plugin for [asdf](https://github.com/asdf-vm/asdf) version manager
 ## Install
 
 ```
-asdf plugin-add kubectl https://github.com/Banno/asdf-kubectl.git
+asdf plugin-add kubectl https://github.com/Littlejd1997/asdf-kubectl.git
 ```
 
 ## Use
