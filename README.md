@@ -17,4 +17,6 @@ You may now switch between kubernetes/helm/minikube versions using
    or
    
      $ asdf global carnegie hub
-  or via the enviorment variable ASDF_CARNEGIE_VERSION=(eks|hub)
+  or via the enviorment variable
+  
+    ASDF_CARNEGIE_VERSION=(eks|hub)
